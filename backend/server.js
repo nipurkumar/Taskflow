@@ -8,7 +8,12 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors({ origin: process.env.FRONTEND_URL || "*" }));
+app.use(
+  cors({
+    origin: "https://taskflow-online.up.railway.app",
+    credentials: true,
+  }),
+);
 app.use(express.json());
 
 // Routes
