@@ -1,8 +1,6 @@
 # ⚡ TaskFlow — Team Task Manager
 
-A production-ready full-stack team task management app with a modern glassmorphism UI.
-
----
+A web app where users can create projects, assign tasks, and track progress with role-based access (Admin/Member).
 
 ## 📁 Full Project Structure
 
