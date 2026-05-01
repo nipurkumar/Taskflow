@@ -2,6 +2,8 @@
 
 A web app where users can create projects, assign tasks, and track progress with role-based access (Admin/Member).
 
+---
+
 ## 📁 Full Project Structure
 
 ```
@@ -61,13 +63,14 @@ taskflow/
 ## 🚀 Local Setup
 
 ### Prerequisites
+
 - Node.js v18+
 - MongoDB Atlas account (free tier works)
 
 ### 1. Clone & install
 
 ```bash
-git clone https://github.com/yourname/taskflow.git
+git clone https://github.com/nipurkumar/taskflow.git
 cd taskflow
 
 # Backend
@@ -85,6 +88,7 @@ cp backend/.env.example backend/.env
 ```
 
 Edit `backend/.env`:
+
 ```
 PORT=5000
 MONGO_URI=mongodb+srv://USER:PASS@cluster.mongodb.net/taskflow
@@ -167,6 +171,7 @@ Open: http://localhost:5173
 ## 📡 REST API Reference
 
 ### Auth
+
 ```
 POST   /api/auth/signup     { name, email, password }
 POST   /api/auth/login      { email, password }
@@ -174,6 +179,7 @@ GET    /api/auth/me         (requires token)
 ```
 
 ### Projects
+
 ```
 GET    /api/projects              Get all user's projects
 GET    /api/projects/:id          Get single project
@@ -185,6 +191,7 @@ DELETE /api/projects/:id/members/:userId
 ```
 
 ### Tasks
+
 ```
 GET    /api/tasks                 Get all tasks (query: ?project=id&status=done)
 GET    /api/tasks/:id             Get single task
@@ -194,6 +201,7 @@ DELETE /api/tasks/:id             (admin/owner only)
 ```
 
 ### Users
+
 ```
 GET    /api/users                 Get all users
 GET    /api/users/:id             Get user by ID
@@ -233,41 +241,41 @@ curl -X POST http://localhost:5000/api/tasks \
 
 ## 🎨 Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Frontend | React 18 + Vite |
-| Styling | Tailwind CSS + custom glass CSS |
-| Animation | Framer Motion |
-| HTTP client | Axios |
-| Routing | React Router v6 |
-| Backend | Node.js + Express |
-| Database | MongoDB + Mongoose |
-| Auth | JWT + bcryptjs |
-| Validation | express-validator |
+| Layer       | Technology                      |
+| ----------- | ------------------------------- |
+| Frontend    | React 18 + Vite                 |
+| Styling     | Tailwind CSS + custom glass CSS |
+| Animation   | Framer Motion                   |
+| HTTP client | Axios                           |
+| Routing     | React Router v6                 |
+| Backend     | Node.js + Express               |
+| Database    | MongoDB + Mongoose              |
+| Auth        | JWT + bcryptjs                  |
+| Validation  | express-validator               |
 
 ---
 
 ## 🛠 Common Errors & Fixes
 
-| Error | Fix |
-|---|---|
-| `CORS error` | Set `FRONTEND_URL` in backend `.env` |
-| `401 Unauthorized` | Check JWT_SECRET matches, re-login |
-| `MongoDB connection failed` | Whitelist IP in Atlas Network Access |
-| `Cannot find module` | Run `npm install` in both folders |
-| `Vite build fails` | Ensure `VITE_API_URL` is set in Vercel env vars |
-| `Railway deploy fails` | Set root directory to `/backend` in Railway settings |
+| Error                       | Fix                                                  |
+| --------------------------- | ---------------------------------------------------- |
+| `CORS error`                | Set `FRONTEND_URL` in backend `.env`                 |
+| `401 Unauthorized`          | Check JWT_SECRET matches, re-login                   |
+| `MongoDB connection failed` | Whitelist IP in Atlas Network Access                 |
+| `Cannot find module`        | Run `npm install` in both folders                    |
+| `Vite build fails`          | Ensure `VITE_API_URL` is set in Vercel env vars      |
+| `Railway deploy fails`      | Set root directory to `/backend` in Railway settings |
 
 ---
 
 ## 🔐 Role-Based Access
 
-| Action | Admin | Member |
-|---|---|---|
-| Create project | ✅ | ❌ |
-| Delete project | ✅ (owner) | ❌ |
-| Add members | ✅ (owner) | ❌ |
-| Create tasks | ✅ | ❌ |
-| Delete tasks | ✅ | ❌ |
-| Update task status | ✅ | ✅ (assigned) |
-| View all tasks | ✅ | ✅ (project member) |
+| Action             | Admin      | Member              |
+| ------------------ | ---------- | ------------------- |
+| Create project     | ✅         | ❌                  |
+| Delete project     | ✅ (owner) | ❌                  |
+| Add members        | ✅ (owner) | ❌                  |
+| Create tasks       | ✅         | ❌                  |
+| Delete tasks       | ✅         | ❌                  |
+| Update task status | ✅         | ✅ (assigned)       |
+| View all tasks     | ✅         | ✅ (project member) |
